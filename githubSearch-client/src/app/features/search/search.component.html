@@ -1,0 +1,48 @@
+<div class="container mt-4">
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8 col-lg-6">
+            <div class="d-flex gap-2">
+
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Search GitHub</mat-label>
+                    <input matInput [(ngModel)]="searchTerm" (keyup.enter)="onSearch()">
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" style="height: 56px" (click)="onSearch()">
+                    GO
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-12 col-md-6 col-lg-4" *ngFor="let repo of repositories; trackBy: trackByRepoId">
+
+            <mat-card class="h-100 shadow-sm">
+                <mat-card-header>
+                    <img mat-card-avatar [src]="repo.owner.avatar_url" alt="Avatar" loading="lazy" decoding="async">
+                    <mat-card-title class="fs-8">{{ repo.name }}</mat-card-title>
+                    <mat-card-subtitle>ID: {{ repo.id }}</mat-card-subtitle>
+                </mat-card-header>
+
+                <mat-card-actions align="end">
+                    <a matButton="outlined" color="accent" [href]="repo.html_url" target="_blank">Open Repo</a>
+
+                    <button mat-mini-fab color="primary" (click)="onBookmark(repo)">
+                        <mat-icon>{{ repo.isBookmarked ? 'bookmark' : 'bookmark_border' }}</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+
+        </div>
+    </div>
+
+    <div *ngIf="!isLoading && repositories.length === 0" class="text-center text-muted mt-5">
+        <p>No results found. Try searching for "Angular" or "DotNet".</p>
+    </div>
+
+</div>

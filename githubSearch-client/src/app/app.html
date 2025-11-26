@@ -1,0 +1,11 @@
+
+<nav *ngIf="isLoggedIn$ | async" class="navbar navbar-dark bg-black mb-4">
+  <div class="container">
+    <span class="navbar-brand">GitHub Search</span>
+    <button class="btn btn-outline-light" (click)="logout()">Logout</button>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

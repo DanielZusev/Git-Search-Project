@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "NG+mHMijEfvUSBhHycfHCKAuDBbpKUzHWrK8gi7B87s=",
+  "Source": "githubSearch-server",
+  "BasePath": "_content/githubSearch-server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
